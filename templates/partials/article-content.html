@@ -4,7 +4,7 @@
     {% if page.extra.image %}
     <div class="image-wrap">
       <a class="article__image" href="{{ page.permalink }}">
-        <img loading="lazy" src="{{ page.extra.image }}" alt="{{ page.title }}">
+        <img loading="lazy" src="{{ get_url(path=page.extra.image) }}" alt="{{ page.title }}">
       </a>
     </div>
     {% endif %}
@@ -36,7 +36,7 @@
       {% endif %}
       <div class="article__meta">
         <div class="article__author-image">
-          <img loading="lazy" src="{{ author_image }}" alt="{{ author_name }}">
+          <img loading="lazy" src="{{ get_url(path=author_image) }}" alt="{{ author_name }}">
         </div>
         <div class="article-info">
           <div class="article__author-name">{{ author_name }}</div>

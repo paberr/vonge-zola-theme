@@ -3,7 +3,7 @@
 <article class="{{c}} col col-4 col-d-6 col-t-12">
   <div class="{{c}}__content">
     <a href="{{ data.permalink }}" class="{{c}}__image">
-      <img loading="lazy" src="{{ data.extra.image }}" alt="{{ data.title }}">
+      <img loading="lazy" src="{{ get_url(path=data.extra.image) }}" alt="{{ data.title }}">
     </a>
     <div class="{{c}}__info">
       <div class="{{c}}__info-wrap">

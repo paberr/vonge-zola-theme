@@ -9,7 +9,7 @@
       {% if page.extra.image %}
       <div class="col col-6 col-d-12">
         <div class="post-image">
-          <img loading="lazy" src="{{ page.extra.image }}" alt="{{ page.title }}">
+          <img loading="lazy" src="{{ get_url(path=page.extra.image) }}" alt="{{ page.title }}">
         </div>
       </div>
       {% endif %}
@@ -37,7 +37,7 @@
           {% endif %}
           <div class="post__meta">
             <div class="post__author-image">
-              <img loading="lazy" src="{{ author_image }}" alt="{{ author_name }}">
+              <img loading="lazy" src="{{ get_url(path=author_image) }}" alt="{{ author_name }}">
             </div>
 
             <div class="post__meta-bottom">

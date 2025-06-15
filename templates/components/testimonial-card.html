@@ -5,7 +5,7 @@
     <div class="{{c}}__client-meta">
       {% if data.extra.image %}
         <div class="{{c}}__image-container">
-          <img class="{{c}}__client-avatar" src="{{ data.extra.image }}" alt="{{ data.extra.name }}">
+          <img class="{{c}}__client-avatar" src="{{ get_url(path=data.extra.image) }}" alt="{{ data.extra.name }}">
         </div>
       {% endif %}
       <div class="{{c}}__client-info">

@@ -5,7 +5,7 @@
   <a class="post__prev" href="{{ page.lower.permalink }}">
     {% if page.lower.extra.image %}
     <div class="prev__image">
-      <img loading="lazy" src="{{ page.lower.extra.image }}" alt="{{ page.lower.title }}">
+      <img loading="lazy" src="{{ get_url(path=page.lower.extra.image) }}" alt="{{ page.lower.title }}">
     </div>
     {% endif %}
     <div class="prev__box">
@@ -23,7 +23,7 @@
     </div>
     {% if page.higher.extra.image %}
     <div class="next__image">
-      <img loading="lazy" src="{{ page.higher.extra.image }}" alt="{{ page.higher.title }}">
+      <img loading="lazy" src="{{ get_url(path=page.higher.extra.image) }}" alt="{{ page.higher.title }}">
     </div>
     {% endif %}
   </a>
