@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://pascal-berrang.de"
+base_url = "https://paberr.github.io/vonge-zola-theme/"
 
 title = "Vonge"
 author = "Vanessa Marley"
