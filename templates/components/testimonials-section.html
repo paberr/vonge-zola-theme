@@ -1,0 +1,38 @@
+{% import "components/testimonial-card.html" as testimonial_card %}
+{% macro testimonials_section(data) %}
+<!-- begin testimonials -->
+<section class="section testimonials animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        <div class="section__info">
+          <div class="section__head">
+            <h2 class="section__title">{{ data.title }}</h2>
+            <ul class="controls list-reset" id="customize-controls" aria-label="Slider Navigation" tabindex="0">
+              <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+                <i class="ion ion-ios-arrow-back"></i>
+              </li>
+              <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+                <i class="ion ion-ios-arrow-forward"></i>
+              </li>
+            </ul>
+          </div>
+          <div class="section__description">{{ data.description_html | safe }}</div>
+        </div>
+
+        {% if data.show_testimonials %}
+        <div class="testimonials__slider my-slider">
+        {% set section = get_section(path="testimonials/_index.md") %}
+        {% for page in section.pages %}
+          {{ testimonial_card::testimonial_card(data=page) }}
+        {% endfor %}
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end testimonials -->
+{% endmacro testimonials_section %}

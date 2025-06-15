@@ -1,0 +1,29 @@
+{% if page.taxonomies.tags %}
+<!-- begin related posts -->
+<div class="container">
+  <section class="related-posts animate">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">You may also like</h2>
+              {% set tag = page.taxonomies.tags | first %}
+              {% set tag_url = get_taxonomy_url(kind="tags", name=tag, lang=page.lang) %}
+                <a href="{{ tag_url }}" class="section__link related-tag">See all<span> {{ tag }}</span> <i class="ion ion-md-arrow-forward"></i></a>
+            </div>
+          </div>
+          {#
+          <div class="row">
+            {{ range first 3 ( where ( where .Site.Pages.ByDate.Reverse ".Params.tags" "intersect" .Params.tags ) "Permalink" "!=" .Permalink ) }}
+              {{ partial "article-content.html" . }}
+            {{ end }}
+          </div>
+          #}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- end related posts -->
+{% endif %}

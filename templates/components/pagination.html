@@ -1,0 +1,35 @@
+{% macro pagination() %}
+<!-- begin pagination -->
+<nav class="pagination">
+    <div class="container">
+      <div class="pagination__inner">
+
+        <div class="pagination__list">
+
+          {% set prev_text = "Prev" %}
+
+          {% if paginator.previous %}
+          <a data-pagebreak-control="prev" href="{{ paginator.previous }}" class="pagination__prev"><i class='ion ion-ios-arrow-back'></i> {{ prev_text }}</a>
+          {% else %}
+          <span data-pagebreak-control="!prev" class="pagination__prev disabled">{{ prev_text }}</span>
+          {% endif %}
+
+          <div class="pagination__count">
+            Page <span data-pagebreak-label="current">{{paginator.current_index}}</span>
+            of <span data-pagebreak-label="total">{{paginator.number_pagers}}</span>
+          </div>
+
+          {% set next_text = "Next" %}
+
+          {% if paginator.next %}
+          <a data-pagebreak-control="next" href="{{ paginator.next }}" class="pagination__next">{{ next_text }}<i class="ion ion-ios-arrow-forward"></i></a>
+          {% else %}
+          <span data-pagebreak-control="!next" class="pagination__next disabled">{{ next_text }}</span>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </nav>
+  <!-- end pagination -->
+  {% endmacro pagination %}

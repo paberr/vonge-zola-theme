@@ -1,0 +1,20 @@
+{% macro page_heading(title, description=false, taxonomies=false) %}
+{% set c = 'c-page-heading' %}
+<div class="container">
+
+  <div class="{{c}}">
+    {% if taxonomies.tags %}
+    <div class="project-tags">
+      {% for tag in taxonomies.tags %}
+      {% set tag_url = get_taxonomy_url(kind="tags", name=tag, lang=page.lang) %}
+        <a href="{{ tag_url }}" class="project-tags__tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <h1 class="{{c}}__title">{{ title }}</h1>
+    {% if description %}
+      <p class="{{c}}__description">{{ description }}</p>
+    {% endif %}
+  </div>
+</div>
+{% endmacro page_heading %}

@@ -1,0 +1,33 @@
+{% macro hero(data) %}
+<!-- begin hero -->
+{% set c = 'c-hero' %}
+<section class="{{c}} animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="{{c}}__inner">
+
+          <div class="{{c}}__left">
+            <h1 class="{{c}}__title">{{ data.title }}</h1>
+            <div class="{{c}}__description">{{ data.description_html | safe }}</div>
+            <div class="{{c}}__btn">
+              <a href="{{ data.cta_button_link }}" class="cta-button c-button c-button--primary c-button--small">{{ data.cta_button }}</a>
+              <a class="works-button c-button c-button--secondary c-button--small" href="{{ data.works_button_link }}">
+                <span class="circle-bg"><i class="ion ion-md-arrow-down button-arrow"></i></span> {{ data.works_button }}
+              </a>
+            </div>
+          </div>
+
+          <div class="{{c}}__right">
+            <div class="{{c}}__image">
+              <img loading="lazy" src="{{ data.image }}" alt="{{ data.image_alt }}">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end hero -->
+{% endmacro hero %}

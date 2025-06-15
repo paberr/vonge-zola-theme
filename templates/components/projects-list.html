@@ -1,0 +1,13 @@
+{% import "components/project-card.html" as project_card %}
+{% macro projects_list(data) %}
+{% if data.show_projects %}
+<div class="container animate">
+  <div class="row">
+    {% set section = get_section(path="projects/_index.md") %}
+    {% for page in section.pages %}
+    {{ project_card::project_card(data = page) }}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+{% endmacro projects_list %}

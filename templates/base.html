@@ -1,0 +1,31 @@
+{% import "components/index.html" as components %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="{{ config.extra.language_direction }}">
+<head>
+    {% block head %}
+    {% include "partials/head.html" %}
+    {% endblock %}
+</head>
+<body>
+    {% include "partials/google-analytics.html" %}
+    {% block header %}
+    {% include "partials/header.html" %}
+    {% endblock %}
+    <main class="main">
+        {% block main %}
+        {% if section.extra.content_blocks %}
+        {{ components::content_blocks(data = section.extra.content_blocks) }}
+        {% endif %}
+        {% endblock %}
+    </main>
+
+    <div class="top" title="Top"><i class="ion ion-ios-arrow-up"></i></div>
+
+    {% block footer %}
+    {% include "partials/footer.html" %}
+    {% endblock %}
+
+    <script src="{{ get_url(path='js/scripts.js') }}"></script>
+    <script src="{{ get_url(path='js/common.js') }}"></script>
+</body>
+</html>

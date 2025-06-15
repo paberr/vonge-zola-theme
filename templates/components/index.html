@@ -1,0 +1,50 @@
+{% import "components/blog-card.html" as blog_card %}
+{% import "components/blog-section.html" as blog_section %}
+{% import "components/contact-form.html" as contact_form %}
+{% import "components/hero.html" as hero %}
+{% import "components/newsletter.html" as newsletter %}
+{% import "components/page-heading.html" as page_heading %}
+{% import "components/page-image.html" as page_image %}
+{% import "components/pagination.html" as pagination %}
+{% import "components/posts-list.html" as posts_list %}
+{% import "components/project-card.html" as project_card %}
+{% import "components/projects-list.html" as projects_list %}
+{% import "components/projects-section.html" as projects_section %}
+{% import "components/tags-list.html" as tags_list %}
+{% import "components/testimonial-card.html" as testimonial_card %}
+{% import "components/testimonials-section.html" as testimonials_section %}
+{% macro content_blocks(data) %}
+{% for block in data %}
+    {% if block.block == "blog-card" %}
+    {{ blog_card::blog_card(data = block) }}
+    {% elif block.block == "blog-section" %}
+    {{ blog_section::blog_section(data = block) }}
+    {% elif block.block == "contact-form" %}
+    {{ contact_form::contact_form(data = block) }}
+    {% elif block.block == "hero" %}
+    {{ hero::hero(data = block) }}
+    {% elif block.block == "newsletter" %}
+    {{ newsletter::newsletter(config = block) }}
+    {% elif block.block == "page-heading" %}
+    {{ page_heading::page_heading(taxonomies = block.taxonomies | default(value=false), title = block.title, description = block.description | default(value=false)) }}
+    {% elif block.block == "page-image" %}
+    {{ page_image::page_image(image = block.image, image_alt = block.image_alt) }}
+    {% elif block.block == "pagination" %}
+    {{ pagination::pagination(data = block) }}
+    {% elif block.block == "posts-list" %}
+    {{ posts_list::posts_list(data = block) }}
+    {% elif block.block == "project-card" %}
+    {{ project_card::project_card(data = block) }}
+    {% elif block.block == "projects-list" %}
+    {{ projects_list::projects_list(data = block) }}
+    {% elif block.block == "projects-section" %}
+    {{ projects_section::projects_section(data = block) }}
+    {% elif block.block == "tags-list" %}
+    {{ tags_list::tags_list(data = block) }}
+    {% elif block.block == "testimonial-card" %}
+    {{ testimonial_card::testimonial_card(data = block) }}
+    {% elif block.block == "testimonials-section" %}
+    {{ testimonials_section::testimonials_section(data = block) }}
+    {% endif %}
+{% endfor %}
+{% endmacro hero %}

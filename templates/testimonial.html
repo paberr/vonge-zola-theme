@@ -1,0 +1,15 @@
+{% import "components/page-heading.html" as page_heading %}
+{% import "components/testimonial-card.html" as testimonial_card %}
+{% import "components/newsletter.html" as newsletter %}
+{% extends "base.html" %}
+{% block main %}
+<div class="container">
+
+  {{ page_heading::page_heading(taxonomies = page.taxonomies, title = page.title, description = page.description) }}
+
+  {{ testimonial_card::testimonial_card(data = page) }}
+
+</div>
+
+{{ newsletter::newsletter(config = config.extra.newsletter) }}
+{% endblock %}

@@ -1,0 +1,66 @@
+<!-- begin header -->
+<header class="c-header">
+  <div class="container">
+    <div class="row">
+      <div class="c-header__inner">
+
+        <div class="logo">
+          <a class="logo__link" href="{{ config.base_url }}">
+          {%- if config.extra.logo_image %}
+            <img class="logo__image" src="{{ get_url(path=config.extra.logo_image) }}" alt="{{ config.title }}">
+          {% else %}
+            {{ config.title }}
+          {% endif %}
+          </a>
+        </div>
+
+        {% if config.extra.navigation %}
+        <nav class="main-nav">
+          <div class="main-nav__box">
+
+            <div class="nav__icon-close">
+              <i class="ion ion-md-close"></i>
+            </div>
+
+            <div class="nav__title">Menu</div>
+
+            <ul class="nav__list list-reset">
+            {% for item in config.extra.navigation %}
+            {% set url = item.url | replace(from='$BASE_URL', to=config.base_url) %}
+            {% set is_active_link = current_url and url | trim_end_matches(pat="/") == current_url | trim_end_matches(pat="/") %}
+
+              {% if item.submenu %}
+              <li class="nav__item dropdown">
+                <span class="nav__link dropdown-toggle">{{ item.title }} <i class="ion ion-ios-arrow-down arrow-down"></i></span>
+                <div class="dropdown-menu">
+                  {% for subitem in item.submenu %}
+                  {% set url = subitem.url | replace(from='$BASE_URL', to=config.base_url) %}
+                  {% set is_active_link = current_url and url | trim_end_matches(pat="/") == current_url | trim_end_matches(pat="/") %}
+                  <a href="{{ url }}" class="nav__link {% if is_active_link %}active-link{% endif %}">{{ subitem.title }}</a>
+                  {% endfor %}
+                </div>
+              </li>
+
+              {% else %}
+
+              <li class="nav__item">
+                <a href="{{ url }}" class="nav__link {% if is_active_link %}active-link{% endif %}">{{ item.title }}</a>
+              </li>
+              {% endif %}
+
+              {% endfor %}
+            </ul>
+          </div>
+        {% include "partials/social-link.html" %}
+        </nav>
+
+        <div class="nav-button">
+          <i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->

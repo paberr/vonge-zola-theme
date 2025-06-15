@@ -1,0 +1,21 @@
+{% import "components/newsletter.html" as newsletter %}
+{% import "components/tags-list.html" as tags_list %}
+{% extends "base.html" %}
+{% block main %}
+
+<div class="container">
+  <h1>{{ taxonomy.name | title }}</h1>
+    <div class="row">
+      <div class="col col-12">
+        <div class="contaniner__inner animate">
+          <div class="row">
+            {{ tags_list::tags_list(terms = terms) }}
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+{{ newsletter::newsletter(config = config.extra.newsletter) }}
+{% endblock %}

@@ -1,0 +1,7 @@
+{% import "components/index.html" as components %}
+{% extends "base.html" %}
+{% block main %}
+{% if config.extra.content_blocks %}
+{{ components::content_blocks(data = config.extra.content_blocks) }}
+{% endif %}
+{% endblock %}

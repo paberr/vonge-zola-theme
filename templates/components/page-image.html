@@ -1,0 +1,12 @@
+{% macro page_image(image, image_alt) %}
+{% set c = 'c-page-image' %}
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="{{c}} animate">
+        <img loading="lazy" src="{{ image }}" alt="{{ image_alt }}">
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro page_image %}

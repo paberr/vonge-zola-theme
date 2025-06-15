@@ -1,0 +1,12 @@
+{% if config.extra.social_icons %}
+<div class="social">
+  <ul class="social__list list-reset">
+    {% for social_icon in config.extra.social_icons %}
+    <li class="social__item">
+      <a class="social__link" href="{{ social_icon.url | replace(from='$BASE_URL', to=config.base_url) }}" target="_blank" rel="noopener"
+        aria-label="{{ social_icon.icon }} icon"><i class="ion ion-logo-{{ social_icon.icon | lower }}"></i></a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

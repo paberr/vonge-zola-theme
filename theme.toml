@@ -1,0 +1,107 @@
+name = "Vonge"
+description = "Vonge is a Personal portfolio/blog site template"
+tags = []
+license = "MIT"
+homepage = "https://github.com/paberr/vonge"
+min_version = "0.4.0"
+demo = "https://paberr.github.io/vonge-zola-theme/"
+
+[extra]
+logo_image = "images/logo.svg"
+social_media_share_image = "/images/01.jpg"
+disqus_identifier = ""
+google_analytics = ""
+twitter_handle = ""
+
+author_image = '/images/avatar.jpg'
+
+navigation = [
+    { url = "$BASE_URL", title = "Home" },
+    { url = "$BASE_URL/projects", title = "Projects" },
+    { url = "$BASE_URL/posts", title = "Blog" },
+    { url = "$BASE_URL/tags", title = "Tags" },
+    { url = "", title = "Pages", submenu = [
+        { url = "$BASE_URL/about", title = "About" },
+        { url = "$BASE_URL/elements", title = "Elements" }
+    ] }
+]
+social_icons = [
+    { url = "https://github.com/cydave", icon = "GitHub" },
+    { url = "https://twitter.com/_cydave", icon = "Twitter" },
+    { url = "$BASE_URL/atom.xml", icon = "RSS" },
+    { url = "https://pinterest.com", icon = "Pinterest"},
+]
+date_format = "%d %b %Y"
+language_direction = "auto"
+keywords = ["keyword1", "keyword2", "keyword3"]
+
+[extra.newsletter]
+newsletter_title = "Join my mailing list"
+newsletter_identifier = ""
+newsletter_button = "Subscribe"
+newsletter_description = "Get inspiration, updates and, cool stuff!"
+
+[extra.footer]
+menu = [
+    { url = "$BASE_URL", title = "Home" },
+    { url = "$BASE_URL/projects/", title = "Projects" },
+    { url = "$BASE_URL/elements/", title = "Elements" },
+    { url = "$BASE_URL/about/", title = "About" },
+    { url = "$BASE_URL/posts/", title = "Blog" },
+]
+#copyright = ""
+
+[[extra.content_blocks]]
+block = "hero"
+title = "Hi there, I am Vanessa Marley"
+description_html = "<strong>Photographer</strong> and Visual Content Strategist from Albany. I work as a lifestyle, product, and landscape photographer, creating images for a diverse range of requests, from online media to printed artwork."
+image = "/images/01.jpg"
+image_alt = "Vanessa Marley's picture"
+cta_button_link = "#contact"
+cta_button = "Get in touch"
+works_button_link = "#projects"
+works_button = "See my works"
+[[extra.content_blocks]]
+block = "projects-section"
+title = "Latest Works"
+description_html = """
+    <p>I show only my best works built completely with passion, simplicity,
+    and creativity!</p>"""
+link_url = "/projects"
+show_projects = true
+[[extra.content_blocks]]
+block = "testimonials-section"
+title = "Happy Clients"
+description_html = ""
+show_testimonials = true
+[[extra.content_blocks]]
+block = "blog-section"
+title = "Recent Posts"
+description_html = """
+    <p>Vonge blog features productivity, tips, inspiration and strategies for
+    massive profits. Find out how to set up a successful blog or how to make
+    yours even better!</p>"""
+link_url = "/posts"
+show_posts = true
+[[extra.content_blocks]]
+block = "newsletter"
+newsletter_title = "Join my mailing list"
+newsletter_description = "Get inspiration, updates and, cool stuff!"
+newsletter_identifier = ""
+newsletter_button = "Subscribe"
+[[extra.content_blocks]]
+block = "contact-form"
+form_title = "Get in touch"
+form_description = "Vonge comes with a built-in contact form."
+form_success_page = ''
+form_submission_email = "site@example.com"
+form_button_text = "Send now"
+
+[author]
+name = "Pascal Berrang"
+homepage = "https://pascal-berrang.de"
+
+[original]
+author = "CloudCannon"
+homepage = "https://cloudcannon.com/templates/vonge/"
+repo = "https://github.com/CloudCannon/vonge-hugo-bookshop-template"

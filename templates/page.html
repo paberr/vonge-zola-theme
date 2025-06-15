@@ -1,0 +1,84 @@
+{% import "components/index.html" as components %}
+{% import "components/newsletter.html" as newsletter %}
+{% extends "base.html" %}
+{% block main %}
+<div class="post-top">
+  <div class="container">
+    <div class="row">
+
+      {% if page.extra.image %}
+      <div class="col col-6 col-d-12">
+        <div class="post-image">
+          <img loading="lazy" src="{{ page.extra.image }}" alt="{{ page.title }}">
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="col col-6 col-d-12">
+        <div class="post__info">
+
+          {% if page.taxonomies.tags %}
+          <div class="post-tags">
+              {% for tag in page.taxonomies.tags %}
+              {% set tag_url = get_taxonomy_url(kind="tags", name=tag, lang=page.lang) %}
+              <a href="{{ tag_url }}" class="post-tags__tag">{{ tag }}</a>
+              {% endfor %}
+          </div>
+          {% endif %}
+
+
+          <h1 class="post__title">{{ page.title }}</h1>
+
+          {% set author_image = page.extra.author_image | default(value=config.extra.author_image) %}
+          {% if page.authors | length > 0 %}
+          {% set author_name = page.authors | join(sep=", ") %}
+          {% else %}
+          {% set author_name = config.author %}
+          {% endif %}
+          <div class="post__meta">
+            <div class="post__author-image">
+              <img loading="lazy" src="{{ author_image }}" alt="{{ author_name }}">
+            </div>
+
+            <div class="post__meta-bottom">
+              <div class="post__author">{{ author_name }}</div>
+              {% set formatted_date_long = page.date | date(format="%Y-%m-%d %H:%M:%S %z") %}
+              {% set formatted_date_short = page.date | date(format=config.extra.date_format) %}
+              <time class="post__date" datetime="{{ formatted_date_long }}">{{ formatted_date_short }}</time>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- begin post -->
+<div class="container animate">
+
+  <article class="post">
+
+    <div class="post__content">
+      {{ page.content | safe }}
+    </div>
+
+    {% include "partials/share.html" %}
+
+  </article>
+</div>
+<!-- end post -->
+
+<div class="container">
+  <div class="row">
+    <div class="col col-10 col-d-12 push-d-0 push-1">
+      {% include "partials/post-navigation.html" %}
+    </div>
+  </div>
+</div>
+
+{% include "partials/disqus-comments.html" %}
+{% include "partials/related-posts.html" %}
+
+{{ newsletter::newsletter(config = config.extra.newsletter) }}
+{% endblock %}

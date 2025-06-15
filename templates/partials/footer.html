@@ -1,0 +1,29 @@
+<!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        {% include "partials/social-link.html" %}
+
+        <ul class="footer_nav list-reset">
+          {% for item in config.extra.footer.menu %}
+          {% set url = item.url | replace(from='$BASE_URL', to=config.base_url) %}
+            <li class="footer_nav__item">
+              <a href="{{ url }}"
+                class="footer_nav__link">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if config.extra.footer.copyright %}
+        <div class="copyright">{{ config.extra.footer.copyright }}</div>
+        {% else %}
+        <div class="copyright">&copy; {{ now() | date(format="%Y") }} <a href="{{ config.base_url }}">{{ config.author }}</a></div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->

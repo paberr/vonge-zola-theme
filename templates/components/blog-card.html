@@ -1,0 +1,60 @@
+{% macro blog_card(data) %}
+{% set c = 'c-blog-card' %}
+<div class="{{c}} col col-4 col-d-6 col-t-12">
+  <div class="{{c}}__inner">
+
+    {% if data.extra.image %}
+    <div class="{{c}}__image-wrap">
+      <a class="{{c}}__image" href="{{ data.permalink }}">
+        <img loading="lazy" src="{{ data.extra.image }}" alt="{{ data.title }}">
+      </a>
+    </div>
+    {% endif %}
+
+    <div class="{{c}}__content">
+
+      {% if data.taxonomies.tags %}
+      <div class="{{c}}__tags-box">
+        {% for tag in data.taxonomies.tags %}
+        {% set tag_url = get_taxonomy_url(kind="tags", name=tag, lang=data.lang) %}
+          <a href="{{ tag_url }}" class="{{c}}__tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <h2 class="{{c}}__title">
+        <a href="{{ data.permalink }}">{{ data.title }}</a>
+      </h2>
+
+      {% if data.description or data.summary %}
+      <p class="{{c}}__excerpt">
+        {% if data.description %}
+          {{ data.description }}
+        {% else %}
+          {{ data.summary | truncate(length=120) | safe }}
+        {% endif %}
+      </p>
+      {% endif %}
+
+      {% set author_image = data.extra.author_image | default(value=config.extra.author_image) %}
+      {% if data.authors | length > 0 %}
+      {% set author_name = data.authors | join(sep=", ") %}
+      {% else %}
+      {% set author_name = config.author %}
+      {% endif %}
+      <div class="{{c}}__meta">
+        <div class="{{c}}__author-image">
+          <img loading="lazy" src="{{ author_image }}" alt="{{ author_name }}">
+        </div>
+        <div class="{{c}}__info">
+          <div class="{{c}}__author-name">{{ author_name }}</div>
+          {% set formatted_date_long = data.date | date(format="%Y-%m-%d %H:%M:%S %z") %}
+          {% set formatted_date_short = data.date | date(format=config.extra.date_format) %}
+          <span class="{{c}}__date"><time datetime="{{ formatted_date_long }}">{{ formatted_date_short }}</time></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endmacro blog_card %}

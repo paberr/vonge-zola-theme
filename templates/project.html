@@ -1,0 +1,31 @@
+{% import "components/page-heading.html" as page_heading %}
+{% import "components/page-image.html" as page_image %}
+{% import "components/newsletter.html" as newsletter %}
+{% extends "base.html" %}
+{% block main %}
+<div class="container">
+
+  {{ page_heading::page_heading(taxonomies = page.taxonomies, title = page.title, description = page.description) }}
+
+  {{ page_image::page_image(image = page.extra.image, image_alt = page.title) }}
+
+  <div class="page animate">
+    {{ page.content | safe }}
+  </div>
+
+  {% if page.higher %}
+  <div class="project__navigation">
+    <a class="project__prev" href="{{ page.higher.permalink }}">
+      <div class="project__box">
+        <span class="project__nav__info">Next Project</span>
+        <h2 class="project__nav__title">{{ page.higher.title }}<i
+            class="ion ion-md-arrow-round-forward arrow-right"></i></h2>
+      </div>
+    </a>
+  </div>
+  {% endif %}
+
+</div>
+
+{{ newsletter::newsletter(config = config.extra.newsletter) }}
+{% endblock %}

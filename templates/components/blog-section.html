@@ -1,0 +1,37 @@
+{% import "components/blog-card.html" as blog_card %}
+{% macro blog_section(data) %}
+{% set c = 'c-blog-card' %}
+<!-- begin blog -->
+<section class="section blog">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="contaniner__inner animate">
+
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">{{ data.title }}</h2>
+              <a class="section__link" href="{{ data.link_url }}">View all <i class="ion ion-md-arrow-forward"></i></a>
+            </div>
+            <div class="section__description">{{ data.description_html | safe }}</div>
+          </div>
+
+          {% if data.show_posts %}
+          <div class="row">
+            {% set section = get_section(path="posts/_index.md") %}
+            {% for i in range(end=3) %}
+            {% if i < section.pages | length %}
+            {% set post = section.pages | nth(n=i) %}
+              {{ blog_card::blog_card(data = post) }}
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end blog -->
+{% endmacro blog_section %}

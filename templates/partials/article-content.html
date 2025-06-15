@@ -1,0 +1,51 @@
+<div class="article col col-4 col-d-6 col-t-12">
+  <div class="article__inner">
+
+    {% if page.extra.image %}
+    <div class="image-wrap">
+      <a class="article__image" href="{{ page.permalink }}">
+        <img loading="lazy" src="{{ page.extra.image }}" alt="{{ page.title }}">
+      </a>
+    </div>
+    {% endif %}
+
+    <div class="article__content">
+
+      {% if page.taxonomies.tags %}
+      <div class="article-tags__box">
+        {% for tag in page.taxonomies.tags %}
+        {% set tag_url = get_taxonomy_url(kind="tags", name=tag, lang=page.lang) %}
+        <a href="{{ tag_url }}" class="article__tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <h2 class="article__title">
+        <a href="{{ page.permalink }}">{{ page.title }}</a>
+      </h2>
+
+      <p class="article__excerpt">
+        {% if page.description %}{{ page.description }}{% else %}{{ page.summary | truncate(length=120) | safe }}{% endif %}
+      </p>
+
+      {% set author_image = page.extra.author_image | default(value=config.extra.author_image) %}
+      {% if page.authors | length > 0 %}
+      {% set author_name = page.authors | join(sep=", ") %}
+      {% else %}
+      {% set author_name = config.author %}
+      {% endif %}
+      <div class="article__meta">
+        <div class="article__author-image">
+          <img loading="lazy" src="{{ author_image }}" alt="{{ author_name }}">
+        </div>
+        <div class="article-info">
+          <div class="article__author-name">{{ author_name }}</div>
+          {% set formatted_date_long = page.date | date(format="%Y-%m-%d %H:%M:%S %z") %}
+          {% set formatted_date_short = page.date | date(format=config.extra.date_format) %}
+          <span class="article__date"><time datetime="{{ formatted_date_long }}">{{ formatted_date_short }}</time></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

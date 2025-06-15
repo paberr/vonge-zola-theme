@@ -1,0 +1,5 @@
+{% import "components/page-heading.html" as page_heading %}
+{% extends "index.html" %}
+{% block main %}
+{{ page_heading::page_heading(title = "404 Not Found", description = "Sorry, but the page you were trying to view does not exist.") }}
+{% endblock %}

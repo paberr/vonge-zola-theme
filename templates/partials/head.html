@@ -1,0 +1,88 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}</title>
+
+{% if page.keywords %}
+<meta name="keywords" content="{{ page.keywords | join(sep=', ') }}">
+{% else %}
+<meta name="keywords" content="{{ config.extra.keywords | join(sep=', ') }}">
+{% endif %}
+
+{% if page.description %}
+<meta name="description" content="{{ page.description }}">
+<meta property="og:description" content="{{ page.description }}" />
+{% else %}
+<meta name="description" content="{{ config.description }}">
+<meta property="og:description" content="{{ config.description }}" />
+{% endif %}
+
+{% if current_url %}
+<link rel="canonical" href="{{ current_url }}">
+{% endif %}
+
+{% if page.authors and page.authors | length > 0 %}
+<meta name="author" content="{{ page.authors | join(sep=", ") }}">
+{% elif config.author %}
+<meta name="author" content="{{ config.author }}">
+{% else %}
+{% endif %}
+
+<!-- Featured Image -->
+{% if page.extra.seo.featured_image %}
+<meta name="og:image" content="{{ page.extra.seo.featured_image }}" />
+<meta name="twitter:image" content="{{ page.extra.seo.featured_image }}" />
+{% elif page.extra.image %}
+<meta name="og:image" content="{{ page.extra.image }}" />
+<meta name="twitter:image" content="{{ page.extra.image }}" />
+{% else %}
+<meta property="og:image" content="{{ get_url(path=config.extra.social_media_share_image) }}">
+<meta name="twitter:image" content="{{ get_url(path=config.extra.social_media_share_image) }}">
+{% endif %}
+
+<!-- Twitter Handle -->
+{% if page.extra.seo.author_twitter_handle %}
+<meta name="twitter:creator" content="{{ page.extra.seo.author_twitter_handle }}" />
+{% elif config.extra.twitter_handle %}
+<meta name="twitter:creator" content="{{ config.extra.twitter_handle }}" />
+{% endif %}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
+{% if page.description %}
+<meta name="twitter:description" content="{{ page.description }}">
+{% else %}
+<meta name="twitter:description" content="{{ config.description }}">
+{% endif %}
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ get_url(path='css/global.css') }}">
+<link rel="stylesheet" href="{{ get_url(path='css/tag.css') }}">
+
+{% block head_favicons %}
+{% set favicon = get_url(path="favicon.ico") %}
+{% if favicon %}
+<link rel="icon" href="{{ favicon }}">
+{% endif %}
+{% endblock %}
+
+{% if config.generate_feeds %}
+{% for feed_filename in config.feed_filenames %}
+<link rel="alternate" type={% if feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=feed_filename) | safe }}">
+{% endfor %}
+{% endif %}
+
+{% block ext_head %}
+    {#- /* Misc */}}
+    {{- if hugo.IsProduction | or (eq site.Params.env "production") }}
+    {{- template "_internal/google_analytics.html" . }}
+    {{- template "partials/templates/opengraph.html" . }}
+    {{- template "partials/templates/twitter_cards.html" . }}
+    {{- template "partials/templates/schema_json.html" . }}
+    {{- end -#}
+{% endblock %}

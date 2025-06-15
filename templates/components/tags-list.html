@@ -1,0 +1,8 @@
+{% macro tags_list(terms) %}
+{% set c = 'c-blog-card' %}
+<div class="{{c}}__tags-box">
+  {% for term in terms %}
+    <a href="{{ term.permalink }}" class="{{c}}__tag">{{ term.name }}</a>
+  {% endfor %}
+</div>
+{% endmacro tags_list %}
