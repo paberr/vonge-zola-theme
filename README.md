@@ -27,11 +27,19 @@ Demo @ https://paberr.github.io/vonge-zola-theme/
 git submodule add https://github.com/paberr/vonge-zola-theme themes/vonge
 ```
 
-2. Add `theme = "vonge"` to your zola `config.toml`
+2. At minimum, add the following to your zola `config.toml`
+
+```toml
+theme = "vonge"
+taxonomies = [
+    { name = "tags", feed = true},
+]
+```
+
 3. Copy over the example content to get started
 
 ```
-cp -r themes/vonge/content content
+cp -r themes/vonge/content/* content
 ```
 
 ## 👷 Usage
