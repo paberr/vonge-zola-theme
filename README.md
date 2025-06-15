@@ -1,4 +1,5 @@
 # Vonge Zola Theme
+![](screenshot.png)
 
 This is a Zola port of the [Vonge Hugo Bookshop template](https://github.com/CloudCannon/vonge-hugo-bookshop-template), originally created by [CloudCannon](https://cloudcannon.com/) and licensed under the MIT License.
 
