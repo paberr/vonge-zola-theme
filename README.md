@@ -8,8 +8,6 @@ Vonge is a clean, modern theme for personal portfolios, blogs, or landing pages.
 
 Demo @ https://paberr.github.io/vonge-zola-theme/
 
----
-
 ## 🚀 Features
 
 * Flexible homepage and inner pages using content blocks
@@ -19,8 +17,6 @@ Demo @ https://paberr.github.io/vonge-zola-theme/
 * Portfolio and testimonial support
 * SEO-friendly structure
 * MIT licensed
-
----
 
 ## 📦 Installation
 
@@ -36,8 +32,6 @@ git submodule add https://github.com/paberr/vonge-zola-theme themes/vonge
 ```
 cp -r themes/vonge/content content
 ```
-
----
 
 ## 👷 Usage
 
@@ -62,13 +56,9 @@ content_blocks = [
 
 You can create your own custom blocks or extend existing ones by editing the theme's templates and SCSS.
 
----
-
 ## 🙏 Acknowledgements
 
 This theme is based on the original [Vonge Hugo Bookshop template](https://github.com/CloudCannon/vonge-hugo-bookshop-template) by [CloudCannon](https://cloudcannon.com/), adapted for use with Zola. All original design credits go to the authors.
-
----
 
 ## 📄 Contributing
 
