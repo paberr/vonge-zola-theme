@@ -2,7 +2,7 @@ name = "Vonge"
 description = "Vonge is a Personal portfolio/blog site template"
 tags = []
 license = "MIT"
-homepage = "https://github.com/paberr/vonge"
+homepage = "https://github.com/paberr/vonge-zola-theme/"
 min_version = "0.4.0"
 demo = "https://paberr.github.io/vonge-zola-theme/"
 
