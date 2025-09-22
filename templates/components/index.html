@@ -1,6 +1,7 @@
 {% import "components/blog-card.html" as blog_card %}
 {% import "components/blog-section.html" as blog_section %}
 {% import "components/contact-form.html" as contact_form %}
+{% import "components/content.html" as content %}
 {% import "components/hero.html" as hero %}
 {% import "components/newsletter.html" as newsletter %}
 {% import "components/page-heading.html" as page_heading %}
@@ -21,6 +22,8 @@
     {{ blog_section::blog_section(data = block) }}
     {% elif block.block == "contact-form" %}
     {{ contact_form::contact_form(data = block) }}
+    {% elif block.block == "content" %}
+    {{ content::content(content_html = block.content_html) }}
     {% elif block.block == "hero" %}
     {{ hero::hero(data = block) }}
     {% elif block.block == "newsletter" %}
