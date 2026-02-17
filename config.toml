@@ -19,11 +19,6 @@ taxonomies = [
     { name = "tags", feed = true},
 ]
 
-[markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = false
-
 [extra]
 logo_image = "images/logo.svg"
 social_media_share_image = "/images/01.jpg"
