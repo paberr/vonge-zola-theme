@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://paberr.github.io/vonge-zola-theme/sitemap.xml
