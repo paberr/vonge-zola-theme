@@ -65,6 +65,10 @@ content_blocks = [
 
 You can create your own custom blocks or extend existing ones by editing the theme's templates and SCSS.
 
+## 📖 Documentation
+
+For a full reference of all configuration options, content blocks, and page variables, see [DOCUMENTATION.md](DOCUMENTATION.md).
+
 ## 🙏 Acknowledgements
 
 This theme is based on the original [Vonge Hugo Bookshop template](https://github.com/CloudCannon/vonge-hugo-bookshop-template) by [CloudCannon](https://cloudcannon.com/), adapted for use with Zola. All original design credits go to the authors.
