@@ -3,36 +3,44 @@
 // *****************
 
 // Spaces
-$base-spacing-unit: 10px;
+$base-spacing-unit: 10px !default;
 
 // Border radius
-$global-radius: 16px;
+$global-radius: 16px !default;
 
 // Transition
-$global-transition: all .35s;
-
+$global-transition: all 0.35s !default;
 
 // *****************
 // Typography
 // *****************
-$base-font-size: 18px;
-$base-font-style: normal;
-$base-font-variant: normal;
-$base-font-weight: normal;
-$base-font-family: 'Inter', Helvetica Neue, Helvetica, Arial, sans-serif;
-$base-line-height: 1.8;
+$base-font-size: 18px !default;
+$base-font-style: normal !default;
+$base-font-variant: normal !default;
+$base-font-weight: normal !default;
+$base-font-family:
+  "Inter",
+  Helvetica Neue,
+  Helvetica,
+  Arial,
+  sans-serif !default;
+$base-line-height: 1.8 !default;
 
 // Headings
-$heading-font-weight: 900;
-$heading-font-family: 'Inter', Helvetica Neue, Helvetica, Arial, sans-serif;
+$heading-font-weight: 900 !default;
+$heading-font-family:
+  "Inter",
+  Helvetica Neue,
+  Helvetica,
+  Arial,
+  sans-serif !default;
 
-$font-size-h1:  36px;
-$font-size-h2:  28px;
-$font-size-h3:  24px;
-$font-size-h4:  20px;
-$font-size-h5:  18px;
-$font-size-h6:  16px;
+$font-size-h1: 36px !default;
+$font-size-h2: 28px !default;
+$font-size-h3: 24px !default;
+$font-size-h4: 20px !default;
+$font-size-h5: 18px !default;
+$font-size-h6: 16px !default;
 
-
-$heading-line-height: 1.2;
-$heading-letter-spacing: -1px;
+$heading-line-height: 1.2 !default;
+$heading-letter-spacing: -1px !default;
