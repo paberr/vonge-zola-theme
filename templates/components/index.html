@@ -23,7 +23,7 @@
     {% elif block.block == "contact-form" %}
     {{ contact_form::contact_form(data = block) }}
     {% elif block.block == "content" %}
-    {{ content::content(content_html = block.content_html) }}
+    {{ content::content(content_html = block.content_html |default(value=""), content_md = block.content_md | default(value="")) }}
     {% elif block.block == "hero" %}
     {{ hero::hero(data = block) }}
     {% elif block.block == "newsletter" %}
